@@ -13,10 +13,10 @@
   <tr>
     <td><%= article.title %></td>
     <td><%= article.text %></td>
-    <td><%= link_to 'Show', article %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article, method: :delete,
-                                     data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Показать', article %></td>
+    <td><%= link_to 'Редактировать', edit_article_path(article) %></td>
+    <td><%= link_to 'Уничтожить', article, method: :delete,
+                                     data: { confirm: 'Вы уверенны?' } %></td>
   </tr>
 <% end %>
 </table>

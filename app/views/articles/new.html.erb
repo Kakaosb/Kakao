@@ -1,16 +1,7 @@
 <h1>Новая статья</h1>
-<%= form_for :article, url: articles_path do |f| %>
-  <p>
-    <%= f.label :Заголовок %><br>
-    <%= f.text_field :title %>
-  </p>
+
+<%= render 'form' %>
  
-  <p>
-    <%= f.label :Текст %><br>
-    <%= f.text_area :text %>
-  </p>
- 
-  <p>
-    <%= f.submit :Создать %>
-  </p>
-<% end %>
+
+
+  <%= link_to 'Назад', articles_path %>
