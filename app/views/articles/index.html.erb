@@ -4,7 +4,7 @@
   <tr>
     <th>Название</th>
     <th>Текст</th>
-    <th></th>
+    <th>Автор</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,6 +13,12 @@
   <tr>
     <td><%= article.title %></td>
     <td><%= article.text %></td>
+    <td><%= User.select("nick", id: 48) %>
+
+
+
+
+   </td>
     <td><%= link_to 'Показать', article %></td>
     <td><%= link_to 'Редактировать', edit_article_path(article) %></td>
     <td><%= link_to 'Уничтожить', article, method: :delete,
