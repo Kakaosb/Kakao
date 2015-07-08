@@ -20,9 +20,13 @@
 
    </td>
     <td><%= link_to 'Показать', article %></td>
+    
+<% if current_user.id == article.user_id || (current_user.admin? )%>
+
     <td><%= link_to 'Редактировать', edit_article_path(article) %></td>
     <td><%= link_to 'Уничтожить', article, method: :delete,
                                      data: { confirm: 'Вы уверенны?' } %></td>
+  <%end%>
   </tr>
 <% end %>
 </table>
