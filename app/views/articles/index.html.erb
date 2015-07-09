@@ -1,36 +1,31 @@
+<br><br><br>
 <h1>Все статьи</h1>
 
-<table>
-  <tr>
-    <th>Название</th>
-    <th>Текст</th>
-    <th>Автор</th>
-    <th></th>
-    <th></th>
-  </tr>
+
 
 <% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.text %></td>
-    <td><%= article.user.nick%>
-
-
-
-
-   </td>
-    <td><%= link_to 'Показать', article %></td>
+    <div>
+           Автор:&nbsp;&nbsp;<b><%= article.user.nick%></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br><br>
+          <span style="font-size:30px"><b> <%= article.title %> </b></span> <br>
+           <%= article.text %> <br><br>
     
-<% if current_user.id == article.user_id || (current_user.admin? )%>
 
-    <td><%= link_to 'Редактировать', edit_article_path(article) %></td>
-    <td><%= link_to 'Уничтожить', article, method: :delete,
-                                     data: { confirm: 'Вы уверенны?' } %></td>
-  <%end%>
-  </tr>
+  
+  <!--  <#%= link_to 'Показать', article %> -->
+    
+
+              <% if current_user.id == article.user_id || (current_user.admin? )%>
+
+                     <%= link_to 'Редактировать', edit_article_path(article) %> 
+                     <%= link_to 'Уничтожить', article, method: :delete,  data: { confirm: 'Вы уверенны?' } %>  <%end%><br>
+                     _________________________________________________________________________________
+                     <br><br><br>
+             
+
 <% end %>
-</table>
 
-<br />
+      </div>
+
+<br>
 
 <%= link_to 'Новая статья', new_article_path %>
