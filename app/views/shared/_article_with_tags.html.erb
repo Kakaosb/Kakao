@@ -1,0 +1,22 @@
+<% @articles.each do |article| %>
+    <div>
+           Автор:&nbsp;&nbsp;<b><%= article.user.nick%></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br><br>
+          <span style="font-size:30px"><b> <%= article.title %> </b></span> <br>
+           <%= article.text %> <br><br>
+    
+
+  
+  <!--  <#%= link_to 'Показать', article %> -->
+    
+
+              <% if current_user.id == article.user_id || (current_user.admin? )%>
+
+                     <%= link_to 'Редактировать', edit_article_path(article) %> 
+                     <%= link_to 'Уничтожить', article, method: :delete,  data: { confirm: 'Вы уверенны?' } %>  <%end%><br>
+                     _________________________________________________________________________________
+                     <br><br><br>
+             
+
+<% end %>
+
+      </div>

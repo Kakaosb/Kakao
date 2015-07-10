@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
 resources :users
 resources :articles 
+resources :tags
  resources :session, only: [:new, :create, :destroy]
 
  
