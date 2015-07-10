@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   
 	def new
     @article = Article.new
+     @tag = Tag.new
   end
 
 def edit
@@ -31,6 +32,9 @@ def edit
     else
       render 'welcome/index'
     end
+
+
+     @tag = Tag.new(tag_params)
   end
 
 
@@ -54,5 +58,9 @@ end
 private
   def article_params
     params.require(:article).permit(:title, :text, :user_id)
+  end
+
+   def tag_params
+    params.require(:tag).permit(:tag)
   end
 end
