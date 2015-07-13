@@ -51,7 +51,7 @@ end
 
 private
   def user_params
-    params.require(:user).permit(:nick, :login, :password_digest, :email, :password_confirmation)
+    params.require(:user).permit(:nick, :login, :password, :email, :password_confirmation)
   end
 
    # Before filters
