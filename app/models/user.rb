@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_and_belongs_to_many :tags
+	
 	has_many :articles, dependent: :destroy
 	
 	  before_save { self.email = email.downcase }

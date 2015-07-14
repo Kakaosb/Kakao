@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-before_action :signed_in_user, only: [:index, :edit, :destroy, :update]
-before_action :correct_user,   only: [:edit, :update, :destroy]
+before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+before_action :correct_user,   only: [:edit, :update]
 before_action :admin_user,     only: :destroy
 
 def index
@@ -44,10 +44,8 @@ end
   end
 
 def destroy
-  @user = User.find(params[:id])
-  @user.destroy
- 
-  redirect_to users_path
+  @user = User.find(params[:id]).destroy
+    redirect_to users_path
 end
 
 private

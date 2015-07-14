@@ -3,6 +3,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
+    @tag = Tag.all
   end
 
    def show
@@ -11,6 +12,7 @@ class ArticlesController < ApplicationController
   
 	def new
     @article = Article.new
+     @tag = Tag.new
    
   end
 
