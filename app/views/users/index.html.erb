@@ -1,6 +1,6 @@
 <% provide(:title, 'Все пользователи') %>
 <h1>Пользователи</h1>
-
+<%= will_paginate %>
 <table>
   <tr>
     <th>Ник</th>
@@ -30,7 +30,7 @@
     <td>
 
         <% if current_user.admin? && !current_user?(user) %>
-    |        <%= link_to 'Уничтожить', user, method: :delete, data: { confirm: 'Вы уверенны?' } %>
+    |        <%= link_to 'Уничтожить',  user, method: :delete,  data: { confirm: 'Вы уверенны?' } %>
         <% end %>
 
      </td>
@@ -41,5 +41,6 @@
 </table>
 
 <br>
-
+<%= will_paginate%>
+<br>
 <%= link_to 'Новый пользователь', new_user_path %>

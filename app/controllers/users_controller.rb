@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-before_action :signed_in_user, only: [:index, :edit, :destroy]
+before_action :signed_in_user, only: [:index, :edit, :destroy, :update]
 before_action :correct_user,   only: [:edit, :update, :destroy]
 before_action :admin_user,     only: :destroy
 
 def index
-    @users = User.all
+    @users = User.paginate(page: params[:page])
+    #@users = User.all
     #@users = User.paginate(page: params[:page])
   end
 	 def show
@@ -32,15 +33,15 @@ def edit
     end
 end
  
- def update
-  @user = User.find(params[:id])
- 
-  if @user.update(user_params)
-    redirect_to @user
-  else
-    render 'edit'
+   def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Профиль изменен"
+      redirect_to @user
+    else
+      render 'edit'
+    end
   end
-end
 
 def destroy
   @user = User.find(params[:id])
@@ -61,6 +62,10 @@ private
  def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
+    end
+
+    def admin_user
+      redirect_to(root_url) unless current_user.admin?
     end
 
 end
