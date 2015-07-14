@@ -1,5 +1,7 @@
-<% provide(:title, 'Просмотр профиля') %>
-
+<% provide(:title, 'Просмотр профиля  ' + @user.nick) %>
+<div class="row">
+  <aside class="span4">
+    <section>
 <br><br><br><h1>Просмотр</h1>
 
 <p>
@@ -24,3 +26,6 @@
 <%= link_to 'Новая статья', new_article_path %><br>
  <%= link_to 'Все пользователи', users_path %>
 
+ </section>
+  </aside>
+</div>
