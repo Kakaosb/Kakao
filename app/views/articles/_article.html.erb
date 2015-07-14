@@ -1,0 +1,7 @@
+<li>
+	<span class="content"><%= article.title %></span>
+  <span class="content"><%= article.text %></span>
+  <span class="timestamp">
+   Опубликовано <%= time_ago_in_words(article.created_at) %> назад.
+  </span>
+</li>
