@@ -28,8 +28,14 @@ def edit
  
  def create
     @article = current_user.articles.build(article_params)
-    if @article.save
-      flash[:success] = "article created!"
+    
+      
+
+str = @article.text
+rez = str.scan(/#[^\s]+/)
+flash[:success] =  rez,  str
+
+if @article.save
       redirect_to root_url
     else
       render 'welcome/index'
@@ -61,6 +67,7 @@ private
   def article_params
     params.require(:article).permit(:title, :text, :user_id)
   end
+
 
    #def tag_params
    # params.require(:tag).permit(:tag)
