@@ -1,3 +1,4 @@
+<%= will_paginate @articles %>
 <% @articles.each do |article| %>
     <div>
            Автор:&nbsp;&nbsp;<b><%= article.user.nick%></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br><br>
@@ -23,5 +24,5 @@
              
 
 <% end %>
-
+<%= will_paginate @articles %>
       </div>

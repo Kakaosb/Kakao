@@ -3,7 +3,9 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.all
-    @tag = Tag.all
+    #@tag = Tag.all
+
+    #@articles = Article.paginate(page: params[:page])
   end
 
    def show
@@ -12,7 +14,7 @@ class ArticlesController < ApplicationController
   
 	def new
     @article = Article.new
-     @tag = Tag.new
+     #@tag = Tag.new
    
   end
 
@@ -27,15 +29,25 @@ def edit
 #end
  
  def create
-    @article = current_user.articles.build(article_params)
+    @article = current_user.articles.build(article_params) #метод ассоциации belongs_to/has_many, возвращает новый объект Article (user_id = user.id)
     
-      
+      #.sub(/\w+mber/, 'july')
+      #   /#(\w+)/  /#[^\s]+/
 
-str = @article.text
-rez = str.scan(/#[^\s]+/)
-flash[:success] =  rez,  str
+ 
 
-if @article.save
+
+find_tags
+ 
+
+flash[:success] = "Статья добавлена"
+
+
+
+#rez = str.scan(/#[^\s]+/)
+#flash[:success] =  str
+
+  if @article.save
       redirect_to root_url
     else
       render 'welcome/index'
