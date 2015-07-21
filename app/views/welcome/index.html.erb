@@ -13,14 +13,21 @@
 <!--<#%= link_to 'Все статьи', class: "btn btn-large btn-primary", controller: 'articles'%><br> <br>-->
 <%= link_to 'Все пользователи', class: "btn btn-large btn-primary", controller: 'users'%><br> <br>
  <% if signed_in? %>
- <%= link_to 'Новый пользователь', new_user_path %>
+ <%= link_to 'Новый пользователь', new_user_path %> <br>
+ <%= link_to 'Тэги', controller: 'tags' %><br>
+ <%= link_to 'Новая статья', controller: 'articles', action: 'new' %>
  <% else %>
 <% end%>
 </div>
 
 
 
+
+
 <section style="float:bottom">
         <%= render template: "shared/_articles_show" %>
+
+
+
 
       </section>

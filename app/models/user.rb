@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+	
 	has_many :articles, dependent: :destroy
 	
 	  before_save { self.email = email.downcase }
@@ -31,7 +31,7 @@ class User < ActiveRecord::Base
     Article.where("user_id = ?", id)
   end
 	
-	validates :password_digest, length: { minimum: 6 }
+	validates :password, length: { minimum: 6 }
 	#validates :password, presence: true, confirmation: true, length: { minimum: 6 }
 	validates :nick, presence: true, uniqueness: { case_sensitive: false }
 	validates :login, presence: true, uniqueness: { case_sensitive: false }

@@ -1,3 +1,7 @@
+<% provide(:title, 'Просмотр профиля  ' + @user.nick) %>
+<div class="row">
+  <aside class="span4">
+    <section>
 <br><br><br><h1>Просмотр</h1>
 
 <p>
@@ -22,3 +26,20 @@
 <%= link_to 'Новая статья', new_article_path %><br>
  <%= link_to 'Все пользователи', users_path %>
 
+ </section>
+  </aside>
+
+
+
+
+  <div class="span8">
+    <% if @user.articles.any? %>
+      <h3>Статьи (<%= @user.articles.count %>)</h3>
+     <ol class="articles">
+  <%= render @articles %>
+</ol>
+     
+      <%= will_paginate @articles %>
+    <% end %>
+  </div>
+</div>

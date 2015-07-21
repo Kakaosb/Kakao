@@ -8,16 +8,11 @@
   
   <!--  <#%= link_to 'Показать', article %> -->
     
-             
-              <% if current_user != nil%>
 
-                        <% if current_user.id == article.user_id || (current_user.admin? )%>
+              <% if current_user.id == article.user_id || (current_user.admin? )%>
 
-                              <%= link_to 'Редактировать', edit_article_path(article) %> 
-                              <%= link_to 'Уничтожить', article, method: :delete,  data: { confirm: 'Вы уверенны?' }  %> 
-
-                        <%end%>
-               <%end%><br>
+                     <%= link_to 'Редактировать', edit_article_path(article) %> 
+                     <%= link_to 'Уничтожить', article, method: :delete,  data: { confirm: 'Вы уверенны?' } %>  <%end%><br>
                      _________________________________________________________________________________
                      <br><br><br>
              
