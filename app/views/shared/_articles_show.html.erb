@@ -1,10 +1,11 @@
+<%= will_paginate @articles %>
 <% @articles.each do |article| %>
     <div>
            Автор:&nbsp;&nbsp;<b><%= article.user.nick%></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br><br>
           <span style="font-size:30px"><b> <%= article.title %> </b></span> <br>
-           <%= article.text %> <br><br>
+           <%= article.text.html_safe %> <br><br>
     
-
+<%= time_ago_in_words(article.created_at) %> ago
   
   <!--  <#%= link_to 'Показать', article %> -->
     
@@ -23,5 +24,5 @@
              
 
 <% end %>
-
+<%= will_paginate @articles %>
       </div>

@@ -4,13 +4,15 @@ Rails.application.routes.draw do
   root 'welcome#index'
 resources :users
 resources :articles 
-resources :tags
- resources :session, only: [:new, :create, :destroy]
+resources :tags #, only: [:show, :new, :create, :destroy]
+resources :session, only: [:new, :create, :destroy]
 
  
  match '/signup',  to: 'users#new',            via: 'get'
  match '/signin',  to: 'session#new',         via: 'get'
  match '/signout', to: 'session#destroy',     via: 'delete'
+
+ match '/tags_create', to: 'articles#create',     via: 'get'
 
   match '/help',    to: 'welcome#help',    via: 'get'
   match '/about',   to: 'welcome#about',   via: 'get'

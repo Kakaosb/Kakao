@@ -4,11 +4,13 @@ before_action :correct_user,   only: [:edit, :update]
 before_action :admin_user,     only: :destroy
 
 def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], :per_page => 15)
+    
     #@users = User.all
     #@users = User.paginate(page: params[:page])
   end
-	 def show
+	
+   def show
     @user = User.find(params[:id])
      @articles = @user.articles.paginate(page: params[:page])
   end

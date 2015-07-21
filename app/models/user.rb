@@ -26,10 +26,10 @@ class User < ActiveRecord::Base
       self.remember_token = User.encrypt(User.new_remember_token)
     end
 
- def feed
+# def feed
     # Это предварительное решение. См. полную реализацию в "Following users".
-    Article.where("user_id = ?", id)
-  end
+   # Article.where("user_id = ?", id)
+  #end
 	
 	validates :password, length: { minimum: 6 }
 	#validates :password, presence: true, confirmation: true, length: { minimum: 6 }
