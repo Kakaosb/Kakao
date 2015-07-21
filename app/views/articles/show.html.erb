@@ -1,4 +1,4 @@
-<h1>Новая статья</h1>
+<h1>Просмотр</h1>
 <p>
   <strong>Название:</strong>
   <%= @article.title %>
@@ -8,3 +8,4 @@
   <strong>Текст:</strong>
   <%= @article.text %>
 </p>
+ <%= link_to 'Все статьи', articles_path %>

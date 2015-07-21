@@ -1,4 +1,4 @@
-<h1>Новый пользователь</h1>
+<br><br><br><h1>Просмотр</h1>
 
 <p>
   <strong>Ник:</strong>
@@ -14,3 +14,7 @@
   <strong>Email:</strong>
   <%= @user.email %>
 </p>
+
+<%= link_to "Редактировать профиль", edit_user_path(current_user) %> <br>
+ <%= link_to 'Все пользователи', users_path %>
+

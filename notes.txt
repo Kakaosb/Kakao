@@ -1,0 +1,41 @@
+
+blog = cool_blog
+
+
+Для создания нового контроллера, нужно запустить генератор "controller" и сказать ему, что вы хотите контроллер с именем "welcome" с экшном по имени "index"
+
+welcome = main_str
+
+чтобы сделать БД с пользователями, нужно сделать модель?
+rails generate model Author Name:string Sername:text Login Password
+
+для password - тип стринг?
+
+Migrations are pending. To resolve this issue, run: bin/rake db:migrate RAILS_ENV=development
+
+
+
+<div id="envelope" class="envelope">
+   <a class="close-btn" href="javascript:void(0)" onclick = "document.getElementById('envelope').style.display='none';document.getElementById('fade').style.display='none'">Закрыть</a>
+     <h1 class="title">Регистрация</h1>
+      <form method="post" action="">
+	<input type="text" name="sender_name" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Ваше Имя (Ник)':this.value;" value="* Ваше Имя (Ник)" class="your-name"/>
+	<input type="text" name="sender_login" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Ваш Login':this.value;" value="* Ваш Login" class="login"/>
+	<input type="text" name="sender_password" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Пароль':this.value;" value="* Пароль" class="password"/>
+	<input type="text" name="rep_password" onclick="this.value='';" onfocus="this.select()" onblur="this.value=!this.value?'* Повторите пароль':this.value;" value="* Повторите Пароль" class="rep_password"/>
+
+	<input type="submit" name="send" value="Регистрация" class="reg_author">
+      </form>
+</div>
+
+популярный плагин RestfulAuthentication для управления пользователями, добавьте reset_session в экшн SessionsController#create
+
+
+created_at - Автоматически будут установлены текущие дата и время при изначальном создании записи.
+updated_at - Автоматически будут установлены текущие дата и время всякий раз, когда обновляется запись.
+lock_version - Добавляет оптимистичную блокировку к модели.
+type - Указывает, что модель использует Single Table Inheritance.
+(association_name)_type - Хранит тип для полиморфных связей.
+(table_name)_count - Используется для кэширования количества принадлежных по связи объектов. Например, столбец comments_count в классе Article, у которого может быть несколько связанных экземпляров Comment, закэширует количество существующих комментариев для каждой статьи
+
+User.find_by(remember_token: remember_token)
