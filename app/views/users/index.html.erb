@@ -6,36 +6,40 @@
     <th>Ник</th>
     <th>Логин</th>
     <th>Email</th>
-    
   </tr>
-<ul class="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-  <% end %>
-</ul>
+
+<!-- <ul class="users">
+  <#% @users.each do |user| %>
+    <#%= render user %>
+  <#% end %>
+</ul> -->
+
 
 <% @users.each do |user| %>
 
   <tr  >
     <td><%= user.nick %></td>
     <td><%= user.login %></td>
-      <td><%= user.email %></td>
+    <td><%= user.email %></td>
     <td><%= link_to 'Показать', user %></td>
-    <td><%= link_to 'Редактировать', edit_user_path(user) %></td>
+    <td>
+        <% if current_user?(user) %>
+          <%= link_to 'Редактировать', edit_user_path(user) %>
+        <% end %>  
+    </td>
     <td>
 
-<% if current_user.admin? && !current_user?(user) %>
-    | <%= link_to 'Уничтожить', user, method: :delete,
-                                  data: { confirm: 'Вы уверенны?' } %>
-  <% end %>
+        <% if current_user.admin? && !current_user?(user) %>
+    |        <%= link_to 'Уничтожить', user, method: :delete, data: { confirm: 'Вы уверенны?' } %>
+        <% end %>
 
-                                     </td>
+     </td>
   </tr>
 
 <% end %>
 
 </table>
 
-<br />
+<br>
 
 <%= link_to 'Новый пользователь', new_user_path %>

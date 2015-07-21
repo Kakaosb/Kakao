@@ -1,16 +1,26 @@
-<div class="center hero-unit">
-  <h1>Олькин бложик</h1>
-<p>Статьи</p>
+<br> <br>
+<div class="center hero-unit " style="float:bottom" >
+
+ <div id="batman" style="/*float:left*/">
+
+<%= link_to image_tag("batman.png", alt: "Batman-pikachu"), '#' %>
+</div >
 
 
-<%= link_to 'Все статьи', class: "btn btn-large btn-primary", controller: 'articles'%><br> <br>
+
+ <h1>Олькин бложик</h1>
+
+<!--<#%= link_to 'Все статьи', class: "btn btn-large btn-primary", controller: 'articles'%><br> <br>-->
 <%= link_to 'Все пользователи', class: "btn btn-large btn-primary", controller: 'users'%><br> <br>
- 
-<%= link_to 'Новый пользователь', new_user_path %>
-
+ <% if signed_in? %>
+ <%= link_to 'Новый пользователь', new_user_path %>
+ <% else %>
 <% end%>
 </div>
 
-<%= link_to image_tag("batman.png", alt: "Batman-pikachu"), '#' %>
 
 
+<section style="float:bottom">
+        <%= render template: "shared/_articles_show" %>
+
+      </section>
