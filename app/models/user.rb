@@ -14,7 +14,10 @@ class User < ActiveRecord::Base
   end
 
   def User.encrypt(token)
-    Digest::SHA1.hexdigest(token.to_s)
+   Digest::SHA1.hexdigest(token.to_s)
+
+    #BCrypt::Password.new(self.password_digest)  == Digest::SHA1.hexdigest(token.to_s)
+    
   end
 
   private

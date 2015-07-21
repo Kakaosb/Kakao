@@ -2,19 +2,13 @@
   <h1>Олькин бложик</h1>
 <p>Статьи</p>
 
-<!--<%= link_to "Пользователи", '#' %> |
-<%= link_to "Настройки", '#' %> |
-<%= link_to "Выйти", signout_path, method: "delete" %> |
-<%= link_to "Профиль", current_user %> -->
-  <h2>
-    
-  </h2>
-
-  <%= link_to "Кнопка", '#', class: "btn btn-large btn-primary" %> <br> <br>
 
 <%= link_to 'Все статьи', class: "btn btn-large btn-primary", controller: 'articles'%><br> <br>
 <%= link_to 'Все пользователи', class: "btn btn-large btn-primary", controller: 'users'%><br> <br>
+ 
 <%= link_to 'Новый пользователь', new_user_path %>
+
+<% end%>
 </div>
 
 <%= link_to image_tag("batman.png", alt: "Batman-pikachu"), '#' %>
