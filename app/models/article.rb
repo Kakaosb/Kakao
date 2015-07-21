@@ -1,5 +1,5 @@
 class Article < ActiveRecord::Base
-	has_and_belongs_to_many :tags
+	has_and_belongs_to_many :tags, dependent: :destroy
 	belongs_to :user
 	default_scope -> { order('created_at DESC') }
 
