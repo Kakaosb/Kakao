@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{61411D88-F760-4B79-9179-2B5706B3D0A5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TicketMachine</RootNamespace>
+    <AssemblyName>TicketMachine</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>packages\NLog.4.1.0\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API.cs" />
+    <Compile Include="Devices\CRC16.cs" />
+    <Compile Include="Devices\ITicketController.cs" />
+    <Compile Include="Devices\TicketController.cs" />
+    <Compile Include="Devices\VirtualTicektController.cs" />
+    <Compile Include="Dispatcher.cs" />
+    <Compile Include="GameLauncher.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\Encryption\INetEncryption.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\Encryption\NetAESEncryption.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\Encryption\NetBlockEncryptionBase.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\Encryption\NetDESEncryption.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\Encryption\NetRC2Encryption.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\Encryption\NetTripleDESEncryption.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\Encryption\NetXorEncryption.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\Encryption\NetXteaEncryption.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NamespaceDoc.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetBigInteger.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetBitVector.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetBitWriter.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetClient.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetConnection.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetConnection.Handshake.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetConnection.Latency.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetConnection.MTU.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetConnectionStatistics.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetConnectionStatus.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetConstants.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetDeliveryMethod.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetException.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetFragmentationHelper.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetFragmentationInfo.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetIncomingMessage.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetIncomingMessage.Peek.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetIncomingMessage.Read.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetIncomingMessage.Read.Reflection.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetIncomingMessage.Write.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetIncomingMessageType.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetMessageType.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetNatIntroduction.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetOutgoingMessage.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetOutgoingMessage.Write.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetOutgoingMessage.Write.Reflection.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeer.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeer.Discovery.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeer.Fragmentation.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeer.Internal.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeer.LatencySimulation.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeer.Logging.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeer.MessagePools.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeer.Send.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeerConfiguration.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeerStatistics.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetPeerStatus.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetQueue.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetRandom.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetReceiverChannelBase.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetReliableOrderedReceiver.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetReliableSenderChannel.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetReliableSequencedReceiver.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetReliableUnorderedReceiver.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetSenderChannelBase.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetSendResult.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetServer.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetSRP.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetStoredReliableMessage.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetTime.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetTuple.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetUnreliableSenderChannel.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetUnreliableSequencedReceiver.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetUnreliableUnorderedReceiver.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetUPnP.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\NetUtility.cs" />
+    <Compile Include="LocalNetwork\Lidgren.Network\SenderChannelBase.cs" />
+    <Compile Include="LocalNetwork\LocalNetworkServer.cs" />
+    <Compile Include="LocalNetwork\SocketPolicyServer.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
