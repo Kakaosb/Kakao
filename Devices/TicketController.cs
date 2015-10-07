@@ -58,6 +58,9 @@ namespace TicketMachine.Devices
         // Счетчик монет
         private int _iAccumulatedCoin = 0;
 
+        // Предыдущее количество выданных тикетов
+        private int _lastGivingTicketsCount = 0;
+
         // Последнее состояние кнопок
         private byte _lastButtonsState = 0x00;
 
@@ -404,11 +407,15 @@ namespace TicketMachine.Devices
                 byte[] tmp = new byte[2];
                 tmp[0] = _responseData[2];
                 tmp[1] = _responseData[3];
-                OnStatusChanged(new TicketMachineStatusChangedEventArgs(TICKETMACHINE_STATUS.TICKETS_OUTOFRANGE, BitConverter.ToInt16(tmp, 0).ToString()));
-                _commandToSend = CONTROLLER_COMNADS.POLL;
-                _firstParamToSend = 0x01;
-                _secondParamToSend = 0x00;
-                Dispatcher.Logger.Trace("Тикеты закончились, осталось выдать " + BitConverter.ToInt16(tmp, 0) + " тикетов");
+                if (_lastGivingTicketsCount != BitConverter.ToInt16(tmp, 0))
+                {
+                    _lastGivingTicketsCount = BitConverter.ToInt16(tmp, 0);
+                    OnStatusChanged(new TicketMachineStatusChangedEventArgs(TICKETMACHINE_STATUS.TICKETS_OUTOFRANGE, _lastGivingTicketsCount.ToString()));
+                    _commandToSend = CONTROLLER_COMNADS.POLL;
+                    _firstParamToSend = 0x01;
+                    _secondParamToSend = 0x00;
+                    Dispatcher.Logger.Trace("Тикеты закончились, осталось выдать " + _lastGivingTicketsCount + " тикетов");
+                }
             }
 
             _pollDeviceTimer.Start();
