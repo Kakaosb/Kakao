@@ -53,6 +53,8 @@ namespace TicketMachine
 
             Dispatcher.Instance.InitHardware(_ticketControllerType, _comPortName);
 
+            Dispatcher.Instance.StartGame();
+
             while (true)
             {
                 ConsoleKeyInfo KeyInfo = Console.ReadKey();

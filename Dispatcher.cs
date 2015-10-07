@@ -32,6 +32,9 @@ namespace TicketMachine
         // Ticket контроллер
         private ITicketController _ticketController;
 
+        // Запускатор игры
+        private GameLauncher _gameLauncher;
+
 
         #region Constructor
 
@@ -108,6 +111,15 @@ namespace TicketMachine
 
             _localNetServer.NetDataReceivedEvent -= _localNetServer_NetDataReceivedEvent;
             _localNetServer.Stop();
+        }
+
+        /// <summary>
+        /// Запуск игры
+        /// </summary>
+        public void StartGame()
+        {
+            _gameLauncher = new GameLauncher();
+            _gameLauncher.Start();
         }
 
         public void ProcessKeyboard(ConsoleKeyInfo Key)

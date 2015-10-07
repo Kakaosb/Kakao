@@ -44,6 +44,11 @@ namespace TicketMachine
         /// </summary>
         public void Start()
         {
+            if (!System.IO.File.Exists(GAME_EXE_PATH))
+            {
+                Dispatcher.Logger.Error("Ошибка запуска игры, игра не найдена");
+                return;
+            }
             _gameProcess.Start();
             _setForegroundTimer.Start();
         }
